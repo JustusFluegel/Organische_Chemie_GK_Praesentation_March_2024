@@ -32,9 +32,9 @@
 \end{block}
 \end{frame}
 
-\subsubsection{Deybe-Wechselwirkung}
+\subsubsection{Debye-Wechselwirkung}
 \begin{frame}
-\frametitle{Intermolekulare Kräfte - Van-der-Waals-Kräfte - Deybe-Wechselwirkung (zwischen induzierten Dipolen)}
+\frametitle{Intermolekulare Kräfte - Van-der-Waals-Kräfte - Debye-Wechselwirkung (zwischen induzierten Dipolen)}
 \begin{itemize}
 	\item<+-> Bereits existierende Dipole in der Lösung
 	\item<+-> Induzierte Dipole in benachbarteten Teilchen
@@ -144,10 +144,49 @@ Zum Beispiel durch folgende Gruppen
 \end{columns}
 \end{frame}
 \subsubsection{Reaktionsenthalpie}
-% TODO: DO THIS
 \begin{frame}
 	\frametitle{Reaktionsenthalpie}
-	// TODO
+	\begin{block}{Was ist das?}
+	\begin{itemize}
+		\item<+-> $\Delta H_R$ gibt die Änderung der Enthalpie ($\approx$Energie) im Verlauf einer Reaktion an, bei konstantem Druck
+		\item<+-> Sie entspricht der Differenz zwischen Produkt und Edukt: $\Delta H_R = H_{\text{Produkt}} - H_{\text{Edukt}}$
+		\item<+-> Da sie nur vergleichbar ist, wenn die Bedingungen gleich sind, verwendet man Standardbedingungen ($273,15 K$, $1 \text{Bar}$)
+		\item<+-> Die Reaktionsenthalpie unter Standardbedingungen wird als $\Delta H_R^0$ bezeichnet.
+	\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Reaktionsenthalpie}
+	\begin{columns}
+	\begin{column}{0.48\textwidth}
+	\begin{block}{Exotherm}
+	\begin{figure}[H]
+		\includegraphics[width=0.6\columnwidth]{../exotherm_enthalpie.png}
+	\end{figure}
+	\begin{itemize}
+		\item<+-> $\Delta E_i = \Delta H_R < 0 \implies$ Exotherm
+		\item<+-> Energie wird freigesetzt
+	\end{itemize}
+	\end{block}
+	\end{column}
+	\begin{column}<+->{0.48\textwidth}
+	\begin{block}{Endotherm}
+	\begin{figure}[H]
+		\includegraphics[width=0.6\columnwidth]{../endotherm_enthalpie.png}
+	\end{figure}
+	\begin{itemize}
+		\item<+-> $\Delta E_i = \Delta H_R > 0 \implies$ Endotherm
+		\item<+-> Energie wird aufgenommen
+	\end{itemize}
+	\end{block}
+	\end{column}
+	\end{columns}
+	\begin{block}{Eigenschaften}
+	\begin{itemize}
+		\item $E_i = H_R$
+		\item<+-> $E_A$ bezeichnet die Aktivierungsenergie, die benötigt wird, um die Reaktion zu starten 
+	\end{itemize}
+	\end{block}
 \end{frame}
 \subsection{radikalische Substitution}
 \begin{frame}
@@ -213,20 +252,53 @@ Zum Beispiel durch folgende Gruppen
 		}
 	\schemestop
 	}
-	\only<8>{
+	\only<9>{
 	\schemestart
-		2 $\cdot$ \chemfig{\charge{180=\|,90=\|,-90=\|,0=.}{Br}}
+		2 $\cdot$ \chemfig{@{bro}\charge{180=\|,90=\|,-90=\|,0=.}{Br}}
+		\chemmove[red,-stealth]{
+			\draw ([xshift=4pt]bro.350) .. controls +(315:10pt) and +(45:10pt) .. ([xshift=4pt]bro.10);
+		}
+		\arrow(br--){->}[0,0.6]
+		\chemfig{\charge{180=\|,90=\|,-90=\|}{Br}-\charge{0=\|,90=\|,-90=\|}{Br}}
+	\schemestop
+	}
+	\only<10>{
+	\schemestart
+		2 $\cdot$ \chemfig{@{bro}\charge{180=\|,90=\|,-90=\|,0=.}{Br}}
+		\chemmove[red,-stealth]{
+			\draw ([xshift=4pt]bro.350) .. controls +(315:10pt) and +(45:10pt) .. ([xshift=4pt]bro.10);
+		}
 		\arrow(br--){->}[0,0.6]
 		\chemfig{\charge{180=\|,90=\|,-90=\|}{Br}-\charge{0=\|,90=\|,-90=\|}{Br}}
 		\arrow(@br--kyl){0}[-90,0.2]
 		\chemfig{C_6H_{13}-[0,0.6]@{c}\charge{0=.}{C}(-[2,0.6]H)(-[-2,0.6]H)}
 		\arrow(@kyl--){->[+ \chemfig{@{br}\charge{0=\|,90=\|,-90=\|,180=.}{Br}}]}[0,0.8]
 		\chemmove[red, -stealth] {
-			\draw ([yshift=-2pt]br.180) .. controls +(120:10pt) and +(60:10pt) .. ([yshift=2pt]c.10);
+			\draw ([xshift=-2pt]br.180) .. controls +(120:10pt) and +(60:10pt) .. ([xshift=2pt]c.10);
+		}
+		\chemfig{C_6H_{13}-[0,0.6]C(-[2,0.6]H)(-[-2,0.6]H)-[0,0.6]\charge{0=\|,90=\|,-90=\|}{Br}}
+	\schemestop
+	}
+	\only<11->{
+	\schemestart
+		2 $\cdot$ \chemfig{@{bro}\charge{180=\|,90=\|,-90=\|,0=.}{Br}}
+		\chemmove[red,-stealth]{
+			\draw ([xshift=4pt]bro.350) .. controls +(315:10pt) and +(45:10pt) .. ([xshift=4pt]bro.10);
+		}
+		\arrow(br--){->}[0,0.6]
+		\chemfig{\charge{180=\|,90=\|,-90=\|}{Br}-\charge{0=\|,90=\|,-90=\|}{Br}}
+		\arrow(@br--kyl){0}[-90,0.2]
+		\chemfig{C_6H_{13}-[0,0.6]@{c}\charge{0=.}{C}(-[2,0.6]H)(-[-2,0.6]H)}
+		\arrow(@kyl--){->[+ \chemfig{@{br}\charge{0=\|,90=\|,-90=\|,180=.}{Br}}]}[0,0.8]
+		\chemmove[red, -stealth] {
+			\draw ([xshift=-2pt]br.180) .. controls +(120:10pt) and +(60:10pt) .. ([xshift=2pt]c.10);
 		}
 		\chemfig{C_6H_{13}-[0,0.6]C(-[2,0.6]H)(-[-2,0.6]H)-[0,0.6]\charge{0=\|,90=\|,-90=\|}{Br}}
 		\arrow(@kyl--kyl2){0}[-90,0.01]
-		2 $\cdot$ \chemfig{C_6H_{13}-[0,0.6]\charge{0=.}{C}(-[2,0.6]H)(-[-2,0.6]H)}
+		2 $\cdot$ \chemfig{C_6H_{13}-[0,0.6]@{cro}\charge{0=.}{C}(-[2,0.6]H)(-[-2,0.6]H)}
+		\chemmove[red,-stealth]{
+			\draw ([xshift=4pt]cro.350) .. controls +(315:10pt) and +(45:10pt) .. ([xshift=4pt]cro.10);
+		}
 		\arrow(@kyl2--){->}[-45,0.6]
 		\chemfig{C_6H_{13}-[0,0.6]C(-[2,0.6]H)(-[-2,0.6]H)-[0,0.6]C(-[2,0.6]H)(-[-2,0.6]H)-[0,0.6]C_6H_{13}}
 	\schemestop
@@ -239,10 +311,11 @@ Zum Beispiel durch folgende Gruppen
 \begin{itemize}
 	\item<+-> Hydrolytische Aufbrechung vom Brom
 	\item<+-> Zuführung von Energie (Licht, Wärme)
-	\item<+-> Bindungsparter behalten Elektronen
+	\item<+-> Bindungspartner behalten Elektronen
 \end{itemize}
 \end{block}
 }
+\only<-7>{
 \begin{block}<+->{Kettenfortschritt / Folgereaktion / Prolongation}
 \begin{itemize}
 	\item Reaktion mit Kohlenwasserstoff
@@ -251,11 +324,15 @@ Zum Beispiel durch folgende Gruppen
 	\item<+-> Wiederholen dieses Schrittes bis kein Edukt mehr vorliegt
 \end{itemize}
 \end{block}
+}
 \only<8->{
 \begin{block}{Kettenabbruch}
 \begin{itemize}
-	\item<+-> Rekombination der Radikale (Bildung von Konvalenten Bindungen)
-
+	\item<8-> Rekombination der Radikale (Bildung von Konvalenten Bindungen):
+	\item<9-> Zwei Halogenradikale treffen aufeinander
+	\item<10-> Ein Halogenradikal und ein Alkylradikal treffen aufeinander
+	\item<11-> Zwei Alkylradikale treffen aufeinander
+	\item<12-> Notiz: Da die Rekombination energetisch ungünstig ist, spielt der Kettenabbruch bis die Edukte verbraucht sind meist eine untergeordnete Rolle.
 \end{itemize}
 \end{block}
 }
@@ -263,7 +340,156 @@ Zum Beispiel durch folgende Gruppen
 \end{columns}
 \end{frame}
 \subsection{elektrophile Addition}
+\begin{frame}
+	\frametitle{Reaktionsmechanismen - elektrophile Addition}
+	\begin{block}{Mechanismus}
+	\begin{itemize}
+		\item<+-> Ungesättigte Kohlenwasserstoffe wie Alkene oder Alkine reagieren mit Halogenen
+		\item<+-> Halogene greifen Doppelbindung im Substrat an
+		\item<+-> Unterteilung in mehrere Schritte (siehe folgendes Beispiel)
+	\end{itemize}
+	\end{block}
+	\begin{alertblock}<+->{Halogene}
+		Die elektrophile Addition funktioniert ausschließlich mit Chlor (\ch{Cl}), Brom (\ch{Br}) und Iod (\ch{I}), da Fluor (\ch{F}) so elektronegativ ist, dass es die \chemfig{C-C}-Bindung und die \chemfig{C-H}-Bindung im Alken/Alkin angreift.
+	\end{alertblock}
+\end{frame}
+\begin{frame}
+	\frametitle{Reaktionsmechanismen - elektrophile Addition}
+\begin{examples}[+ \chemfig{X_2}]
+\schemestart
+	\chemfig{R^1-[1]C=[@{b1}]C-[-1]R^2}
+	\arrow{->[\chemfig{@{ax}X_2}]}
+	\chemmove[red,-stealth]{
+		\draw (ax.90) .. controls +(120:30pt) and +(70:20pt) .. (b1.90);
+	}
+	\chemfig{R_1-[1]C(-[1.2,0.8506,,,draw=none]@{br1}X-[2]X)=[@{bond}]C-[-1]R^2}
+	\chemmove[black, dashed, -]{
+		\draw (bond.90) -- (br1);
+	}
+	\arrow{->[-\chemfig{X^\fminus}]}
+	\chemfig{R_1-[1]C(<[1.2,0.8506]\charge{-90:10pt=\scrp}{X})=C(<[2.8,0.8506]\phantom{X})-[-1]R^2}
+	\arrow{->[+ \chemfig{@{hadd}X^\fminus}]}[-90]
+	\chemfig{R_1-[1]C(<[3]X)-[@{bond}]C(<:[1]@{hadd2}X)-[-1]R^2}
+	\chemmove[red,-stealth]{
+		\draw ([yshift=-16pt,xshift=-16pt]hadd.315) .. controls +(315:5pt) and +(120:5pt) .. (hadd2.120);
+	}
+\schemestop
+\end{examples}
+\end{frame}
+\begin{frame}
+	\frametitle{Reaktionsmechanismen - elektrophile Addition}
+\begin{examples}[+ \chemfig{XH}]
+\schemestart
+	\chemfig{R^1-[1]C=[@{b1}]C-[-1]R^2}
+	\arrow{->[\chemfig{@{ax}XH}]}
+	\chemmove[red,-stealth]{
+		\draw (ax.90) .. controls +(120:30pt) and +(70:20pt) .. (b1.90);
+	}
+	\chemfig{R_1-[1]C(-[1.2,0.8506,,,draw=none]@{br1}X-[2]H)=[@{bond}]C-[-1]R^2}
+	\chemmove[black, dashed, -]{
+		\draw (bond.90) -- (br1);
+	}
+	\arrow{->[-\chemfig{H^\fminus}]}
+	\chemfig{R_1-[1]C(<[1.2,0.8506]\charge{-90:10pt=\scrp}{X})=C(<[2.8,0.8506]\phantom{X})-[-1]R^2}
+	\arrow{->[+ \chemfig{@{hadd}H^\fminus}]}[-90]
+	\chemfig{R_1-[1]C(<[3]X)-[@{bond}]C(<:[1]@{hadd2}H)-[-1]R^2}
+	\chemmove[red,-stealth]{
+		\draw ([yshift=-16pt,xshift=-16pt]hadd.315) .. controls +(315:5pt) and +(120:5pt) .. (hadd2.120);
+	}
+\schemestop
+\end{examples}
+\end{frame}
 \subsection{Eliminierung}
+\begin{frame}
+	\frametitle{Reaktionsmechanismen - Eliminierung}
+	\begin{itemize}
+		\item \say{elektrophile Addition rückwärts}
+		\item<+-> Spaltet \ch{X-H} ab
+		\item<+-> 3 verschiedene Mechanismen: $E_1$, $E_1cB$, $E_2$
+	\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Reaktionsmechanismen - Eliminierung - $E_1$}
+\begin{examples}
+\schemestart
+	\chemfig{C(-[3]H_3C)(<:[1.5]CH_3)(<[0.3]H)-[-2]C(-[-1]CH_3)(<:[@{xb}-2.8]@{xm}X)<[-3.8]H_3C}
+	\chemmove[red,-stealth]{
+		\draw ([xshift=2pt]xb.330) .. controls +(320:15pt) and +(355:10pt) .. (xm.315);
+	}
+	\arrow{->[][- \chemfig{X^\fminus}]}
+	\chemfig{C(-[3]H_3C)(<:[1.5]CH_3)(<[@{hb}0.3]H)-[@{ccb}-2]\charge{-90:8pt=\fscrp}{C}(-[-1]CH_3)-[-3]H_3C}
+	\chemmove[red,-stealth]{
+		\draw (hb.270) .. controls +(270:10pt) and +(0:10pt) .. (ccb.0);
+	}
+	\arrow{->[][- \chemfig{H^\fplus}]}
+	\chemfig{C(-[3]H_3C)(-[1]CH_3)=[-2]C(-[-1]CH_3)-[-3]H_3C}
+\schemestop
+\end{examples}
+\begin{block}<+->{Vorgang}
+\begin{itemize}
+	\item Das Halogen-Atom wird im ersten Schritt abgespalten
+	\item<+-> Das Wasserstoff-Atom wird im zweiten Schritt abgespalten
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Reaktionsmechanismen - Eliminierung - $E_1cB$}
+\begin{examples}
+\schemestart
+	\chemfig{C(-[3]H_3C)(<:[1.5]CH_3)(<[@{hb}0.3]H)-[@{ccb}-2]C(-[-1]CH_3)(<:[-2.8]X)<[-3.8]H_3C}
+	\chemmove[red,-stealth]{
+		\draw (hb.270) .. controls +(270:10pt) and +(0:10pt) .. (ccb.0);
+	}
+	\arrow{->[+ \chemfig{\charge{90=\|}{B}}][- \chemfig{HB^\fplus}]}
+	\chemfig{\charge{-45:6pt=\fscrm}{C}(-[3]H_3C)(-[1]CH_3)-[@{ccb}-2]C(-[-1]CH_3)(<:[@{xb}-2.8]@{xm}X)<[-3.8]H_3C}
+	\chemmove[red,-stealth]{
+		\draw ([xshift=2pt]xb.330) .. controls +(320:15pt) and +(355:10pt) .. (xm.315);
+	}
+	\arrow{->[][- \chemfig{X^\fminus}]}
+	\chemfig{C(-[3]H_3C)(-[1]CH_3)=[-2]C(-[-1]CH_3)-[-3]H_3C}
+\schemestop
+\end{examples}
+\begin{block}<+->{Vorgang}
+\begin{itemize}
+	\item Das \textbf{Wasserstoff-Atom} wird im \textbf{ersten} Schritt abgespalten
+	\item<+-> Das \textbf{Halogen-Atom} wird im \textbf{zweiten} Schritt abgespalten
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Reaktionsmechanismen - Eliminierung - $E_2$}
+\begin{examples}
+\schemestart
+	\chemfig{C(-[3]H_3C)(<:[1.5]CH_3)(<[@{hb}0.3]H)-[@{ccb}-2]C(-[-1]CH_3)(<:[@{xb}-2.8]@{xm}X)<[-3.8]H_3C}
+	\chemmove[red,-stealth]{
+		\draw (hb.270) .. controls +(270:10pt) and +(0:10pt) .. (ccb.0);
+		\draw ([xshift=2pt]xb.330) .. controls +(320:15pt) and +(355:10pt) .. (xm.315);
+	}
+	\arrow{->[+ \chemfig{\charge{90=\|}{B}}][\subscheme{ - \chemfig{HB^\fplus} \arrow(--){0}[-90,0.1] - \chemfig{X^\fminus} }]}
+	\chemfig{C(-[3]H_3C)(-[1]CH_3)=[-2]C(-[-1]CH_3)-[-3]H_3C}
+\schemestop
+\end{examples}
+\begin{block}<+->{Vorgang}
+\begin{itemize}
+	\item Das Wasserstoff-Atom und das Halogen-Atom wird in \textbf{einem Schritt} abgespalten
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Reaktionsmechanismen - Eliminierung - Reaktionsgeschwindigkeit}
+\begin{alertblock}{$E_1$ / $E_1cB$}
+Da die $E_1$ / $E_1cB$-Reaktion in zwei Schritten verläuft, beeinflusst nur eine Konzentration die Reaktionsgeschwindigkeit (der 1. Schritt muss vollendet sein, damit der 2. Schritt passieren kann)
+\begin{align*}
+	v = k_1 \cdot c[\text{Substrat}]
+\end{align*}
+\end{alertblock}
+\begin{alertblock}<+->{$E_1$ / $E_1cB$}
+Da die $E_2$-Reaktion in einem Schritt verläuft, beeinflussen \textbf{beide} Konzentrationen die Reaktionsgeschwindigkeit (Beide Edukte sind am 1. Schritt beteiligt)
+\begin{align*}
+	v = k_2 \cdot c[\text{Substrat}] \cdot c[\text{Elektrophil}]
+\end{align*}
+\end{alertblock}
+\end{frame}
 \subsection{nukleophile Substitution}
 \begin{frame}
 \frametitle{Reaktionsmechanismen - nukleophile Substitution - $S_N1$}
@@ -348,11 +574,41 @@ Bei einer $S_N2$-Reaktion beeinflussen \textbf{beide} Konzentrationen die Reakti
 \end{alertblock}
 \end{frame}
 
-\subsection{elektrophile Substitution}
 \section{Stoffklassen}
 
-% TODO: do this 
 \begin{frame}
 \frametitle{Stoffklassen}
-// TODO
+\begin{itemize}
+	\item<+-> Einteilung von Stoffen
+	\item<+-> funktionelle Gruppe ist charakteristisch für Stoffklasse
+	\item<+-> Atome in Molekülen bestimmen über chemische und physikalische Eigenschaften
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Stoffklassen}
+\vspace{-25pt}
+\begin{table}[]
+\begin{tabular}{l|l}
+Funktionelle Gruppe & Stoffklasse   \\ \hline\hline
+Halogen  \chemfig{R-[,0.65]X}           & Halogenalkane \\ \hline
+Amino-Gruppe    \chemfig{R-[,0.65]N(-[1,0.65]H)-[-1,0.65]H}    & Amine         \\ \hline
+Hydroxy-Gruppe   \chemfig{R-[,0.65]\charge{[overlay=false]-90=\|,90=\|}{O}-[,0.65]H}   & Alkohle       \\ \hline
+Ether-Gruppe     \chemfig{R^1-[,0.65]\charge{[overlay=false]-90=\|,90=\|}{O}-[,0.65]R^2}   & Ether         \\ \hline
+Aldehyd-Gruppe    \chemfig{R-[,0.65]C(=[1,0.65]\charge{[overlay=false]90=\|,0=\|}{O})-[-1,0.65]H}  & Aldehyde      \\ \hline
+Keto-Gruppe     \chemfig{C(-[3,0.65]R^1)(=[,0.65]\charge{[overlay=false]45=\|,315=\|}{0})-[-3,0.65]R^2}    & Ketone        \\ \hline
+Carboxy-Gruppe  \chemfig{C(-[-3,0.65]R)(=[2,0.65]\charge{[overlay=false]45=\|,135=\|}{0})-[-1,0.65]\charge{[overlay=false]-45=\|,-135=\|}{O}-[1,0.65]H}    & Carbonsäure  
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Stoffklassen}
+\begin{alertblock}{Mehrere Stoffklassen}
+	Einige Moleküle können auch mehrere Stoffklassen haben, zum Beispiel:
+
+	\vspace{20pt}
+
+	\chemname{\chemfig{NH_2-C(-[2]COOH)(-[-2]R)-H}}{Aminsäure}
+\end{alertblock}
 \end{frame}
