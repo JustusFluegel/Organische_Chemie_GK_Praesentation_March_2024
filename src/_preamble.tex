@@ -1,0 +1,139 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Boadilla}
+% \usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows, chains, fit, shapes, calc}
+\usepackage{pgfplots}
+\usepackage{chemfig}
+\usepackage{chemmacros}
+\usepackage{commath}
+\usepackage{dirtytalk}
+\tikzset{
+-, % makes the edges directed
+%>=stealth, % makes the arrow heads bold
+node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary.
+initial text=start, % sets the text that appears on the start arrow
+}
+
+\edef\sizetape{0.7cm} 
+\tikzset{
+    tmtape/.style={
+        draw,minimum size=#1
+    },
+    tmhead/.style={
+        draw,minimum size=0.75*#1, yshift=#1 * 1.5
+    },
+    tmtape/.default={\sizetape},
+    tmhead/.default={\sizetape},
+}
+
+% Fix arrows between chemfig and arrow in chemfig scheme on xelatex
+\makeatletter
+\def\pgfsys@hboxsynced#1{%
+  {%
+    \pgfsys@beginscope%
+    \setbox\pgf@hbox=\hbox{%
+      \hskip\pgf@pt@x%
+      \raise\pgf@pt@y\hbox{%
+        \pgf@pt@x=0pt%
+        \pgf@pt@y=0pt%
+        \special{pdf: content q}%
+        \pgflowlevelsynccm% 
+        \pgfsys@invoke{q -1 0 0 -1 0 0 cm}%
+        \special{pdf: content -1 0 0 -1 0 0 cm q}% translate to original coordinate system
+        \pgfsys@invoke{0 J [] 0 d}% reset line cap and dash
+        \wd#1=0pt%
+        \ht#1=0pt%
+        \dp#1=0pt%
+        \box#1%
+        \pgfsys@invoke{n Q Q Q}%
+      }%
+      \hss%
+    }%
+    \wd\pgf@hbox=0pt%
+    \ht\pgf@hbox=0pt%
+    \dp\pgf@hbox=0pt%
+    \pgfsys@hbox\pgf@hbox%
+    \pgfsys@endscope%
+  }%
+}
+\makeatother
+\def\leftparen{\llap{$\left(\strut\right.$\kern5pt }}
+\def\rightparen{\rlap{$\kern5pt \left.\strut\right)_n$}}
+% \usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+% \usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[
+  Extension = .otf,
+  UprightFont = *-regular,
+  BoldFont = *-bold,
+  ItalicFont = *-italic,
+  BoldItalicFont = *-bolditalic,
+]
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{float}
+% \usepackage{listings, listings-rust}
+% \usepackage[colorlinks=true, urlcolor=blue]{hyperref}
+\usepackage[citestyle=verbose-ibid]{biblatex}
+\usepackage{mathtools}
+
+\addbibresource{lib.bib}
+
+% \makeatletter
+% \renewenvironment{proof}[1][\proofname]{\par
+% \pushQED{\qed}%
+% \normalfont \topsep6\p@\@plus6\p@\relax
+% \trivlist
+% \item\relax
+% {\itshape
+% #1\@addpunct{.}}\hspace\labelsep\ignorespaces
+% }{%
+% \popQED\endtrivlist\@endpefalse
+% }
+% \makeatother
+
+%\mathchardef\convolution=`*
+%\mathcode`*=\cdot
+
+\theoremstyle{plain}% default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{KL}{Klein’s Lemma}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+% \newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+
+% \lstset{
+%     numbers = left,
+%     stepnumber = 1,
+%     numberstyle=\tiny,
+%     numberfirstline=true,
+%     frame=single,
+%     xleftmargin=4em,
+%     xrightmargin=4em,
+%     framexleftmargin=1.5em,
+% }
+
+\title{Organische Chemie}
+\author[Flügel, Schultze, Selimi, Culmey, Prebreza]{J. Flügel\inst{1} \and S. Schultze\inst{1} \and E. Selimi\inst{1} \and L. Culmey\inst{1} \and A. Prebreza\inst{1} }
+
+\date[Chemie, 2024]{Chemie Grundkurs, März 2024}
+
+\institute[IGP]{
+    Integrierte Gesamtschule Paffrath \inst{1}
+}
+
+\begin{document}
+\maketitle
